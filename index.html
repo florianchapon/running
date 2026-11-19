@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes courses — Route & Trail</title>
+  <meta name="description" content="Journal de mes courses sur route et trail : distances, dénivelés, temps, allures.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero__inner">
+    <p class="eyebrow">Journal de course</p>
+    <h1>Mes courses<br><span>route &amp; trail</span></h1>
+    <div class="totals" id="totals" aria-live="polite"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <div class="filters" role="tablist" aria-label="Filtrer par type">
+      <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">Toutes</button>
+      <button class="chip" data-filter="trail" role="tab" aria-selected="false">⛰️ Trail</button>
+      <button class="chip" data-filter="route" role="tab" aria-selected="false">🛣️ Route</button>
+    </div>
+    <p class="count" id="count"></p>
+  </div>
+
+  <section class="grid" id="grid" aria-label="Liste des courses"></section>
+  <p class="empty" id="empty" hidden>Aucune course à afficher.</p>
+</main>
+
+<footer class="footer">
+  <p>VAP = vitesse ajustée à la pente (estimée : 100 m D+ ≈ 1 km plat, sauf valeur renseignée dans le JSON).</p>
+</footer>
+
+<!-- Fiche détail -->
+<dialog class="modal" id="modal" aria-labelledby="m-title">
+  <button class="modal__close" id="m-close" aria-label="Fermer">×</button>
+  <div class="modal__hero" id="m-hero"></div>
+  <div class="modal__body">
+    <p class="badge" id="m-type"></p>
+    <h2 id="m-title"></h2>
+    <p class="meta" id="m-meta"></p>
+    <div class="stats" id="m-stats"></div>
+    <p class="notes" id="m-notes"></p>
+    <a class="btn" id="m-link" target="_blank" rel="noopener" hidden></a>
+    <div class="gallery" id="m-gallery"></div>
+  </div>
+</dialog>
+
+<!-- Lightbox -->
+<dialog class="lightbox" id="lightbox">
+  <button class="modal__close" id="l-close" aria-label="Fermer">×</button>
+  <img id="l-img" alt="">
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
